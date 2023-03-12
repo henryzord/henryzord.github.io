@@ -1,1 +1,34 @@
-# Empty CSS file for your own CSS
+/* Empty CSS file for your own CSS */
+
+* {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+body.mypage-background {
+    background-color: #f58b57;
+}
+
+.jumbotron {
+    background-color: #FFFFFF;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    color: #DDDDDD;
+    text-decoration: underline;
+}
+
+.nav-pills {
+    background-color: #000000;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-item.show .nav-link {
+    color: #000000;
+    cursor: default;
+    background-color: #FFFFFF;
+}
