@@ -9,7 +9,8 @@ body.mypage-background {
 }
 
 .jumbotron {
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
+    background-color: #f58b57;
 }
 
 a {
