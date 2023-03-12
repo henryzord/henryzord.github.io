@@ -22,12 +22,14 @@ a:focus, a:hover {
     text-decoration: underline;
 }
 
-.nav-pills {
+.nav-pills, .nav-bar {
     background-color: #000000;
 }
 
 .nav-pills .nav-link.active,
-.nav-pills .nav-item.show .nav-link {
+.nav-pills .nav-item.show .nav-link,
+.nav-bar .nav-link.active,
+.nav-bar .nav-item.show .nav-link {
     color: #000000;
     cursor: default;
     background-color: #FFFFFF;
