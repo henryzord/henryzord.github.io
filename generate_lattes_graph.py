@@ -76,13 +76,22 @@ def main(param):
         color_discrete_map={'Atuação Profissional': '#000000', 'Formação': '#FFFFFF'}
     )
 
-    fig = go.Figure()
+    fig = go.Figure(
+        layout=go.Layout(
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)'
+        )
+    )
 
     fig.add_trace(go.Bar(fig1.data[0]))
     fig.add_trace(go.Bar(fig1.data[1]))
     fig.update_xaxes(type='date')
     fig.update_yaxes(autorange='reversed')  # otherwise tasks are listed from the bottom up
-    
+
+    html = fig.to_html(full_html=False, include_plotlyjs='cdn')
+    with open(os.path.join('resources', 'lattes_graph.html'), 'w', encoding='utf-8') as write_file:
+        write_file.write(html)
+
     fig.show()
 
 
