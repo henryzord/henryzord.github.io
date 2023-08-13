@@ -1,2 +1,5 @@
 lxml
-beautifulsoup4
+beautifulsoup4~=4.12.2
+jinja2~=2.11.3
+pandas~=1.4.4
+plotly~=5.10.0
