@@ -40,7 +40,6 @@ def main(param):
     l_df += [get_formation_data(formacoes.find('GRADUACAO'), 'Graduação')]
     l_df += [get_formation_data(formacoes.find('MESTRADO'), 'Mestrado')]
     l_df += [get_formation_data(formacoes.find('DOUTORADO'), 'Doutorado')]
-    # l_df += [get_formation_data(formacoes.find('POS-DOUTORADO'), 'Pós-doutorado')]
 
     atuacoes = bs_data.find('ATUACOES-PROFISSIONAIS')
     p_atuacoes = atuacoes.findAll('ATUACAO-PROFISSIONAL')
@@ -85,8 +84,8 @@ def main(param):
 
     fig.add_trace(go.Bar(fig1.data[0]))
     fig.add_trace(go.Bar(fig1.data[1]))
-    fig.update_xaxes(type='date')
-    fig.update_yaxes(autorange='reversed')  # otherwise tasks are listed from the bottom up
+    fig.update_xaxes(type='date', showgrid=False)
+    fig.update_yaxes(autorange='reversed', showgrid=False)  # otherwise tasks are listed from the bottom up
 
     html = fig.to_html(full_html=False, include_plotlyjs='cdn')
     with open(os.path.join('resources', 'lattes_graph.html'), 'w', encoding='utf-8') as write_file:
