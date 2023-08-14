@@ -1,5 +1,4 @@
 import bs4
-import argparse
 import os
 
 import pandas as pd
@@ -26,7 +25,35 @@ def get_formation_data(particle, nivel):
     return res
 
 
-def main(param):
+def tabulate_text(text, max_width=40):
+    particles = text.split(' ')
+    processed = []
+    counter = 0
+    for p in particles:
+        counter += len(p)
+        if counter >= max_width:
+            processed += [p + '<br>']
+            counter = 0
+        else:
+            processed += [p]
+
+    return ' '.join(processed)
+
+
+def remove_special_characters(text):
+    return text.strip().replace('&quot;', '\"').replace('&#10;', ' ').strip()
+
+
+def build_other_info_string(enq_func, other_info, max_width=40):
+    newline = '<br>' if len(other_info) > max_width else ''
+
+    specs = newline + (enq_func if len(enq_func) > 0 else '')
+    specs += f': {other_info}' if len(other_info) > 0 else ''
+
+    return specs
+
+
+def main():
     encoding = 'ISO-8859-1'
     with open(os.path.join('resources', 'curriculo.xml'), 'r', encoding=encoding) as read_file:
         specs = read_file.read()
@@ -57,9 +84,9 @@ def main(param):
                 mes_fim = int(mes_fim) + 1
 
             enq_func = vinc.attrs['OUTRO-ENQUADRAMENTO-FUNCIONAL-INFORMADO'].strip()
-            outras_info = vinc.attrs['OUTRAS-INFORMACOES'].strip().replace('&quot;', '\"')
-            specs = enq_func if len(enq_func) > 0 else ''
-            specs += f': {outras_info}' if len(outras_info) > 0 else ''
+            other_info = tabulate_text(remove_special_characters(vinc.attrs['OUTRAS-INFORMACOES']))
+
+            specs = build_other_info_string(enq_func, other_info)
 
             l_df += [[
                 nome_inst, f'{ano_inicio}-{mes_inicio}-01', f'{ano_fim}-{mes_fim}-01', specs, 'Atuação Profissional'
@@ -95,14 +122,4 @@ def main(param):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Novo script!'
-    )
-
-    parser.add_argument(
-        '--param', action='store', required=False,
-        help='Algum parâmetro.'
-    )
-
-    args = parser.parse_args()
-    main(param=args.param)
+    main()
