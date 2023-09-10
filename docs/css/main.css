@@ -1,0 +1,47 @@
+/* Empty CSS file for your own CSS */
+
+/*
+#383D3B -- dark grey
+#7C7C7C -- light grey
+#EEE5E9 -- white
+
+#92DCE5 -- light blue
+#52DEE5 -- middle blue
+*/
+
+* {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+body.default-styling {
+    /*background-color: #E8E9F3;*/
+}
+
+.main-container {
+    padding-top: 10px;
+}
+
+/*nav.navbar {*/
+/*    background-color: #383D3B;*/
+/*}*/
+
+/*button.navbar-toggler {*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*a.nav-link, a.navbar-brand {*/
+/*    color: #ffffff;*/
+/*}*/
+
+/*.nav-pills, .nav-bar {*/
+/*    background-color: #000000;*/
+/*}*/
+
+/*.nav-pills .nav-link.active,*/
+/*.nav-pills .nav-item.show .nav-link,*/
+/*.nav-bar .nav-link.active,*/
+/*.nav-bar .nav-item.show .nav-link {*/
+/*    color: #000000;*/
+/*    cursor: default;*/
+/*    background-color: #FFFFFF;*/
+/*}*/

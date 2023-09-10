@@ -4,9 +4,24 @@ import jinja2
 
 
 def main():
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates/'))
-    experience_template = env.get_template('template_experience.html')
-    navbar = env.get_template('navigation_bar.html')  # type: jinja2.Template
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader('templates/')
+    )
+
+    names = ['contact.html', 'index.html']
+
+    for name in names:
+        content = env.get_template(name)
+        content = content.render()
+
+        with open(os.path.join('docs', name), 'w', encoding='utf-8') as write_file:
+            write_file.write(content)
+
+    exit(0)
+
+
+    experience_template = env.get_template('experience.html')
+
 
     with open(os.path.join('resources', 'lattes_graph.html'), 'r', encoding='utf-8') as read_file:
         lattes_graph = read_file.read()

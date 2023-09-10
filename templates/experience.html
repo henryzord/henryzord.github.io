@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% include 'head.html' %}
+
+</head>
+<body class="mypage-background">
+
+    {{ navigation_bar }}
+
+<div class="container-fluid main-container">
+
+    <p>This is a timeline of the institutions that I worked in.</p>
+
+    <p>This graph was generated from my <a href=" https://lattes.cnpq.br/6346810782525797">Lattes</a> Curriculum Vitae
+        and was generated on <b>{{ date_generated }}</b>.</p>
+
+    <p>For up-to-date information please check my <a href=" https://lattes.cnpq.br/6346810782525797">Lattes</a>.</p>
+
+    <p>Hover over the horizontal bars for more information!</p>
+
+    {{ lattes_graph }}
+
+</div>
+
+</body>
+
+{% include 'scripts.html' %}
+
+</html>
