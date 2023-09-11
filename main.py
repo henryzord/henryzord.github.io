@@ -52,11 +52,13 @@ def main():
         'contact.html': default_render
     }
 
+    path = os.path.dirname(__file__)
+
     for name, func in names.items():
         template = env.get_template(name)
         content = func(template)
 
-        with open(os.path.join('docs', name), 'w', encoding='utf-8') as write_file:
+        with open(os.path.join(path, 'docs', name), 'w', encoding='utf-8') as write_file:
             write_file.write(content)
 
 
