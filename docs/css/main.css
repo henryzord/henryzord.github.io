@@ -17,6 +17,10 @@ body.default-styling {
     background-color: #E8E9F3;
 }
 
+div.main-container {
+    padding-top: 10px;
+}
+
 /*button.navbar-toggler {*/
 /*    color: #ffffff;*/
 /*}*/

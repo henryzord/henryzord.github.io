@@ -3,8 +3,15 @@ import json
 import jinja2
 from datetime import datetime as dt
 
+from render.lattes_graph import generate_graph
+
 
 def render_experience_template(template):
+    fig, html = generate_graph()
+
+    with open(os.path.join('templates', 'lattes_graph.html'), 'w', encoding='utf-8') as write_file:
+        write_file.write(html)
+
     now = dt.now()
     content = template.render(date_generated=now.strftime('%B %d, %Y'))
     return content

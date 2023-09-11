@@ -1,10 +1,11 @@
-import bs4
 import os
+import bs4
+
+from datetime import datetime as dt
 
 import pandas as pd
+from plotly import express as px
 from plotly import graph_objs as go
-import plotly.express as px
-from datetime import datetime as dt
 
 
 def get_formation_data(particle, nivel):
@@ -53,9 +54,18 @@ def build_other_info_string(enq_func, other_info, max_width=40):
     return specs
 
 
-def main():
+def generate_graph():
+    """
+    Generates experience graph.
+
+    :return: A tuple where the first element is a plotly.graphical_objects.Figure and the second a string with the HTML
+        graph.
+    """
+
+    this_path = os.path.dirname(__file__)
+
     encoding = 'ISO-8859-1'
-    with open(os.path.join('resources', 'curriculo.xml'), 'r', encoding=encoding) as read_file:
+    with open(os.path.join(this_path, '..', 'resources', 'curriculo.xml'), 'r', encoding=encoding) as read_file:
         specs = read_file.read()
 
     bs_data = bs4.BeautifulSoup(specs.encode(encoding), 'xml', from_encoding=encoding)
@@ -99,7 +109,7 @@ def main():
         df,
         x_start='início', x_end='fim', y='instituição', hover_data=['Outras Informações'],
         color='Tipo',
-        color_discrete_map={'Atuação Profissional': '#000000', 'Formação': '#FFFFFF'}
+        color_discrete_map={'Atuação Profissional': '#383D3B', 'Formação': '#92DCE5'}
     )
 
     fig = go.Figure(
@@ -115,7 +125,14 @@ def main():
     fig.update_yaxes(autorange='reversed', showgrid=False)  # otherwise tasks are listed from the bottom up
 
     html = fig.to_html(full_html=False, include_plotlyjs='cdn')
-    with open(os.path.join('resources', '../templates/lattes_graph.html'), 'w', encoding='utf-8') as write_file:
+
+    return fig, html
+
+
+def main():
+    fig, html = generate_graph()
+
+    with open(os.path.join('..', 'templates', 'lattes_graph.html'), 'w', encoding='utf-8') as write_file:
         write_file.write(html)
 
     fig.show()
