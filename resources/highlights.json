@@ -1,0 +1,26 @@
+[
+  {
+    "card_title": "Bachelor's Graduation",
+    "card_description": "I received my Bachelor's Degree in Computer Science on July 2014, from my Computation Club supervisor Andrea Charão.",
+    "img_src": "images/bachelor_graduation.jpg",
+    "img_alt": "A man receiving a graduation hat by a woman."
+  },
+  {
+    "card_title": "Computation Club",
+    "card_description": "Me participating at the Computation Club on 2014, at the place where I attended Elementary School",
+    "img_src": "images/compclub.jpg",
+    "img_alt": "A class of kids receiving a certificate for participating in the Computation Club."
+  },
+  {
+    "card_title": "Master's Graduation",
+    "card_description": "I received my Master's Degree in Computer Science in March 2017. This is me with my supervisor, Dr Rodrigo Barros, as well as professors Dr Duncan Ruiz and Dr Leonardo Emmendorfer.",
+    "img_src": "images/masters_graduation.jpg",
+    "img_alt": "Four men standing in front of a slide presentation."
+  },
+  {
+    "card_title": "Patron of Computer Technician class",
+    "card_description": "I was honored to be chosen as patron of the 2022's class of Computer Technicians of Industrial Technical College of Santa Maria",
+    "img_src": "images/patron.jpg",
+    "img_alt": "A class of students in graduation outfit."
+  }
+]

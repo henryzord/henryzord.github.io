@@ -1,18 +1,36 @@
 import os
+import json
 import jinja2
 from datetime import datetime as dt
 
 
-def render_experience_template(content):
-    with open(os.path.join('resources', 'lattes_graph.html'), 'r', encoding='utf-8') as read_file:
-        lattes_graph = read_file.read()
-
+def render_experience_template(template):
     now = dt.now()
-    content = content.render(
-        date_generated=now.strftime('%B %d, %Y'),
-        lattes_graph=lattes_graph,
-    )
+    content = template.render(date_generated=now.strftime('%B %d, %Y'))
     return content
+
+
+def render_highlights_template(template):
+    with open(os.path.join('resources', 'highlights.json'), 'r', encoding='utf-8') as read_file:
+        highlights = json.load(read_file)
+
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader('templates/')
+    )
+    card = env.get_template('highlights_card.html')
+    cards = []
+    for highlight in highlights:
+        rendered = card.render(
+            **highlight,
+        )
+        cards += [rendered]
+
+    content = template.render(highlights_cards=''.join(cards))
+    return content
+
+
+def default_render(template):
+    return template.render()
 
 
 def main():
@@ -20,15 +38,16 @@ def main():
         loader=jinja2.FileSystemLoader('templates/')
     )
 
-    names = ['index.html', 'experience.html', 'highlights.html', 'contact.html']
+    names = {
+        'index.html': default_render,
+        'experience.html': render_experience_template,
+        'highlights.html': render_highlights_template,
+        'contact.html': default_render
+    }
 
-    for name in names:
+    for name, func in names.items():
         template = env.get_template(name)
-
-        if name == 'experience.html':
-            content = render_experience_template(template)
-        else:
-            content = template.render()
+        content = func(template)
 
         with open(os.path.join('docs', name), 'w', encoding='utf-8') as write_file:
             write_file.write(content)

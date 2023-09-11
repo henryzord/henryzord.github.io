@@ -9,19 +9,35 @@
 
 {% include 'navbar.html' %}
 
-<div class="container-fluid main-container">
-
-    <p>This is a timeline of the institutions that I worked in.</p>
-
-    <p>This graph was generated from my <a href=" https://lattes.cnpq.br/6346810782525797">Lattes</a> Curriculum Vitae
-        and was generated on <b>{{ date_generated }}</b>.</p>
-
-    <p>For up-to-date information please check my <a href=" https://lattes.cnpq.br/6346810782525797">Lattes</a>.</p>
-
-    <p>Hover over the horizontal bars for more information!</p>
-
-    {{ lattes_graph }}
-
+<div class="container d-flex justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-12">
+                <h2>Experience 👨‍🏫</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="lead">
+                    This is a timeline of the institutions that I worked in.
+                </p>
+                <p class="lead">
+                    This graph was generated from my <a href=" https://lattes.cnpq.br/6346810782525797">Lattes</a>
+                    Curriculum Vitae and was generated on <b>{{ date_generated }}</b>.
+                </p>
+                <p class="lead">
+                    For up-to-date information please check my
+                    <a href=" https://lattes.cnpq.br/6346810782525797">Lattes</a>.
+                </p>
+                <p class="lead">Hover over the horizontal bars for more information!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% include 'lattes_graph.html' %}
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 

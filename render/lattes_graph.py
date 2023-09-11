@@ -115,7 +115,7 @@ def main():
     fig.update_yaxes(autorange='reversed', showgrid=False)  # otherwise tasks are listed from the bottom up
 
     html = fig.to_html(full_html=False, include_plotlyjs='cdn')
-    with open(os.path.join('resources', 'lattes_graph.html'), 'w', encoding='utf-8') as write_file:
+    with open(os.path.join('resources', '../templates/lattes_graph.html'), 'w', encoding='utf-8') as write_file:
         write_file.write(html)
 
     fig.show()

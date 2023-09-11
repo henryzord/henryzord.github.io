@@ -9,45 +9,22 @@
 
 {% include 'navbar.html' %}
 
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <div class="card-deck">
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top"
-                         src="https://pagesix.com/wp-content/uploads/sites/3/2021/10/kanye-name-change.jpg?quality=75&strip=all&w=618&h=410&crop=1"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top"
-                         src="https://pagesix.com/wp-content/uploads/sites/3/2021/10/kanye-name-change.jpg?quality=75&strip=all&w=618&h=410&crop=1"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top"
-                         src="https://pagesix.com/wp-content/uploads/sites/3/2021/10/kanye-name-change.jpg?quality=75&strip=all&w=618&h=410&crop=1"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12">
+            <h2>Highlights 🌟</h2>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p class="lead">
+                These are some of the most important moments of my professional life!
+            </p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center row-cols-1 row-cols-sm-1 row-cols-md-2 g-4">
+        {{ highlights_cards }}
+    </div>
     </div>
 </div>
 </body>
