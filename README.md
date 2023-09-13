@@ -20,7 +20,8 @@ conda install --file requirements.txt
 ## Testing preview thumbnails
 
 The Meta (Facebook) ecosystem uses Open Graph to display previews in social media, while Twitter uses Twitter Cards. 
-Use https://www.opengraph.xyz/ to check if your previews are working properly.
+Use https://www.opengraph.xyz/ and https://developers.facebook.com/tools/debug/ to check if your previews are working 
+properly.
 
 ## Other information
 
